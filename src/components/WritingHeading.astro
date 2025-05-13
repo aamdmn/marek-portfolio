@@ -1,0 +1,21 @@
+---
+// Import the Typewriter React component
+import Typewriter from "./Typewriter";
+---
+
+<div class="flex flex-col items-center justify-center text-center">
+	<h1 class="text-3xl md:text-4xl lg:text-6xl font-medium translate-x-8 md:translate-x-12">Marek Vicáň</h1>
+	<div class="flex items-center mt-1 md:mt-2">
+		<Typewriter
+			text={["UX/UI", "Graphic", "Product", "Logo", "Creative"]}
+			speed={110}
+			waitTime={2000}
+			loop
+			className="font-medium text-3xl md:text-4xl lg:text-6xl font-heading"
+			cursorChar="&#124;"
+			cursorClassName="ml-1 font-thin"
+			client:visible
+		/>
+		<span class="ml-1 md:ml-2 text-3xl md:text-4xl lg:text-6xl font-medium font-heading">Designer</span>
+	</div>
+</div>
