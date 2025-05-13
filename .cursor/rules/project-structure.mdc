@@ -1,0 +1,33 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Project Structure Guide
+
+This project is a portfolio website built with Astro, React, and Tailwind CSS.
+
+## Key Directories:
+
+*   `src/`: Contains the main source code for the website.
+    *   `src/pages/`: This is where your Astro pages (`.astro` files) and API endpoints are located. Each file in this directory (or its subdirectories) becomes a route on your site. For example, `src/pages/index.astro` is the homepage, and `src/pages/about.astro` becomes `/about`.
+    *   `src/layouts/`: Astro layouts (`.astro` files) are used to define reusable UI structures for your pages. For example, a `BaseLayout.astro` might include the header, footer, and navigation common to all pages.
+    *   `src/components/`: Reusable UI components are stored here. These can be Astro components (`.astro`), React components (`.jsx` or `.tsx`), or components from other frameworks.
+    *   `src/styles/`: Global stylesheets (e.g., `global.css`) and Tailwind CSS configuration or custom CSS files are typically placed here. [src/styles/globals.css](mdc:src/styles/globals.css) is a common entry point for global styles.
+    *   `src/assets/`: Static assets like images, fonts, or other downloadable files that are referenced by your components and pages.
+*   `public/`: Static assets that are served directly by the browser and are not processed by Astro's build pipeline (e.g., `favicon.ico`, `robots.txt`).
+*   `node_modules/`: Where project dependencies (npm packages) are installed.
+*   `.astro/`: A directory used by Astro for caching and build artifacts. You usually don't need to touch this.
+
+## Key Files:
+
+*   `astro.config.mjs`: The main configuration file for your Astro project. This file controls integrations (like React and Tailwind CSS), build options, and other project settings. [astro.config.mjs](mdc:astro.config.mjs)
+*   `package.json`: Defines project dependencies, scripts (like `dev`, `build`, `preview`), and other metadata. [package.json](mdc:package.json)
+*   `tsconfig.json`: TypeScript configuration file, if you are using TypeScript in your project. [tsconfig.json](mdc:tsconfig.json)
+*   `README.md`: Provides general information about the project. [README.md](mdc:README.md)
+
+## Frameworks:
+
+*   **Astro**: Used for building the overall site structure, pages, and layouts. Astro components (`.astro`) are common.
+*   **React**: Used for creating interactive UI components, likely found within the `src/components/` directory as `.jsx` or `.tsx` files.
+*   **Tailwind CSS**: Used for styling. Configuration and global styles might be in `src/styles/globals.css`.

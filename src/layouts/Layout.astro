@@ -1,3 +1,9 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import MobileHeader from "../components/MobileHeader";
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -8,15 +14,10 @@
 		<title>Astro Basics</title>
 	</head>
 	<body>
-		<slot />
+		<Header />
+		<MobileHeader client:load />
+		<main class="flex-grow">
+			<slot />
+		</main>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
