@@ -17,6 +17,8 @@ export default function MobileHeader() {
 			opacity: 1,
 			transition: {
 				duration: 0.2,
+				when: "beforeChildren",
+				staggerChildren: 0.1,
 			},
 		},
 		exit: {
@@ -28,14 +30,18 @@ export default function MobileHeader() {
 	};
 
 	const linkVariants = {
-		initial: { opacity: 0 },
-		animate: (i: number) => ({
+		initial: {
+			opacity: 0,
+			y: 5,
+		},
+		animate: {
 			opacity: 1,
+			y: 0,
 			transition: {
-				delay: i * 0.05,
-				duration: 0.15,
+				duration: 0.3,
+				ease: [0.22, 1, 0.36, 1], // Custom ease for smooth fade
 			},
-		}),
+		},
 	};
 
 	const menuLinks = [
@@ -74,14 +80,11 @@ export default function MobileHeader() {
 						<nav className="flex flex-col items-center justify-center space-y-8 text-white">
 							{menuLinks.map((link, i) => (
 								<motion.a
-									custom={i}
-									initial="initial"
-									animate="animate"
-									variants={linkVariants}
 									key={link.href}
 									href={link.href}
 									className="text-xl font-normal text-white hover:text-gray-300 transition-colors"
 									onClick={() => setIsMenuOpen(false)}
+									variants={linkVariants}
 								>
 									{link.text}
 								</motion.a>
