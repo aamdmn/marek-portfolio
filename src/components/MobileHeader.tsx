@@ -55,7 +55,7 @@ export default function MobileHeader() {
 			{/* Mobile Header - fixed height to prevent layout shift */}
 			<header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 h-16 bg-background">
 				<a href="/" className="z-50">
-					<img src={logo.src} alt="Logo" className="w-10 h-10" />
+					<img src={logo.src} alt="Logo" className="w-8 h-8" />
 				</a>
 
 				<button
