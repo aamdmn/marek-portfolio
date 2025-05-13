@@ -19,6 +19,7 @@
     "motion": "^12.11.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "sharp": "^0.34.1",
     "tailwindcss": "^4.1.6"
   },
   "devDependencies": {
