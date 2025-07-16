@@ -1,0 +1,35 @@
+---
+import archiveData from "../data/archive.json";
+import Layout from "../layouts/Layout.astro";
+import type { ArchiveItem } from "../types/archive";
+---
+
+<Layout title="Archive | Marek">
+  <section class="w-full bg-black text-white py-16">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold mb-12">Archive</h1>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        {archiveData.map((item: ArchiveItem) => (
+          <div class="relative group">
+            <div class="overflow-hidden border border-zinc-800 relative">
+              <img 
+                src={item.image} 
+                alt={item.title}
+                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                style={`aspect-ratio: ${item.width / item.height}`}
+              />
+              <div class="absolute bottom-0 right-0 bg-black bg-opacity-70 px-2 py-1">
+                <span class="text-xs font-mono">M</span>
+              </div>
+            </div>
+            <div class="mt-3 flex justify-between items-center">
+              <p class="text-sm font-mono text-zinc-400">{item.title}</p>
+              <div class="h-px flex-grow mx-2 bg-zinc-800"></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout> 

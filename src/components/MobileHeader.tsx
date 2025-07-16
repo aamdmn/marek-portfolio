@@ -76,8 +76,12 @@ export default function MobileHeader() {
 						exit="exit"
 						variants={menuVariants}
 						className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-background/60 backdrop-blur-sm"
+						onClick={() => setIsMenuOpen(false)} // Close when clicking overlay
 					>
-						<nav className="flex flex-col items-center justify-center space-y-8 text-white">
+						<nav
+							className="flex flex-col items-center justify-center space-y-8 text-white"
+							onClick={(e) => e.stopPropagation()} // Prevent closing when clicking nav content
+						>
 							{menuLinks.map((link, i) => (
 								<motion.a
 									key={link.href}
