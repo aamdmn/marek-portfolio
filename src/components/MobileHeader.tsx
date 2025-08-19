@@ -53,7 +53,7 @@ export default function MobileHeader() {
 	return (
 		<div className="md:hidden">
 			{/* Mobile Header - fixed height to prevent layout shift */}
-			<header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 h-16 bg-background">
+			<header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 h-16 bg-transparent">
 				<a href="/" className="z-50">
 					<img src={logo.src} alt="Logo" className="w-8 h-8" />
 				</a>
@@ -81,6 +81,11 @@ export default function MobileHeader() {
 						<nav
 							className="flex flex-col items-center justify-center space-y-8 text-white"
 							onClick={(e) => e.stopPropagation()} // Prevent closing when clicking nav content
+							onKeyDown={(e) => {
+								if (e.key === "Enter" || e.key === " ") {
+									e.stopPropagation();
+								}
+							}}
 						>
 							{menuLinks.map((link, i) => (
 								<motion.a

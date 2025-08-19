@@ -52,19 +52,19 @@ const archiveItems = [
 ];
 ---
 
-<div class="w-full bg-background text-palette-brightest-white py-8 min-h-screen">
+<div class="w-full max-w-6xl mx-auto bg-background text-palette-brightest-white py-8 min-h-screen">
 	<div class="container mx-auto px-4">
 		<div class="grid grid-cols-2 grid-rows-3 gap-12 relative">
 			<!-- Tour Poster -->
 			<div class="relative col-start-1 col-end-1 row-span-1">
 				<div class="relative overflow-hidden">
-					<img 
-						src={tourPoster.src} 
+					<Image 
+						src={tourPoster} 
 						alt="tour_poster_photoshot_2024.png"
 						class="w-full h-auto"
 					/>
 					<div>
-						<p class="text-xs font-mono text-palette-brightest-white">tour_poster_photoshot_2024.png</p>
+						<p class="font-mono text-palette-brightest-white">tour_poster_photoshot_2024.png</p>
 					</div>
 				</div>
 			</div>
@@ -72,13 +72,13 @@ const archiveItems = [
 			<!-- AERV -->
 			<div class="relative col-start-2 row-span-1">
 				<div class="relative overflow-hidden">
-					<img 
-						src={aerv.src} 
+					<Image 
+						src={aerv} 
 						alt="aerv.png"
 						class="w-full h-auto"
 					/>
 					<div class="">
-						<p class="text-xs font-mono text-palette-brightest-white">aerv.png</p>
+						<p class="font-mono text-palette-brightest-white">aerv.png</p>
 					</div>
 				</div>
 			</div>
@@ -86,13 +86,13 @@ const archiveItems = [
 			<!-- AEC3 -->
 			<div class="relative col-start-1 row-span-1 mt-16">
 				<div class="relative overflow-hidden">
-					<img 
-						src={aec3.src} 
+					<Image 
+						src={aec3} 
 						alt="aec3.png"
 						class="w-full h-auto"
 					/>
 					<div>
-						<p class="text-xs font-mono text-palette-brightest-white">aec3.png</p>
+						<p class="font-mono text-palette-brightest-white">aec3.png</p>
 					</div>
 				</div>
 			</div>
@@ -100,33 +100,33 @@ const archiveItems = [
 			<!-- Orbis Libri -->
 			<div class="relative col-start-2 row-span-1 mt-16">
 				<div class="relative overflow-hidden">
-					<img 
-						src={orbisLibri.src} 
+					<Image 
+						src={orbisLibri} 
 						alt="orbis_libri_logo_blue.png"
 						class="w-full h-auto"
 					/>
 					<div>
-						<p class="text-xs font-mono text-palette-brightest-white">orbis_libri_logo_blue.png</p>
+						<p class="font-mono text-palette-brightest-white">orbis_libri_logo_blue.png</p>
 					</div>
 				</div>
 				</div>
 			
 			<!-- Reborn Poster -->
-			<div class="relative col-start-1 row-span-1 mt-32">
+			<div class="relative col-start-1 row-span-1 ">
 				<div class="relative overflow-hidden">
-					<img 
-						src={rebornPoster.src} 
+					<Image 
+						src={rebornPoster} 
 						alt="reborn_poster.png"
 						class="w-full h-auto"
 					/>
 					<div>
-						<p class="text-xs font-mono text-palette-brightest-white">reborn_poster.png</p>
+						<p class="font-mono text-palette-brightest-white">reborn_poster.png</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="flex justify-end pr-4 pt-16">
-		<a href="/archive" class="text-xs font-mono text-palette-brightest-white hover:text-white transition-colors duration-300">see_full_archive</a>
+	<div class="flex justify-center pr-4 pt-24">
+		<a href="/archive" class="text-base font-mono text-palette-brightest-white hover:text-white transition-colors duration-300">see_full_archive</a>
 	</div>
 </div>
