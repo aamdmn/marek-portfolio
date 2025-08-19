@@ -1,31 +1,32 @@
 {
-  "name": "marek-portfolio",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "lint": "biome lint --write .",
-    "lint:fix": "biome check --write ."
-  },
-  "dependencies": {
-    "@astrojs/react": "^4.2.7",
-    "@studio-freight/lenis": "^1.0.42",
-    "@tailwindcss/vite": "^4.1.6",
-    "@types/react": "^19.1.4",
-    "@types/react-dom": "^19.1.5",
-    "astro": "^5.7.12",
-    "clsx": "^2.1.1",
-    "motion": "^12.11.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "sharp": "^0.34.1",
-    "tailwind-merge": "^3.3.0",
-    "tailwindcss": "^4.1.6"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "1.9.4"
-  }
+	"name": "marek-portfolio",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"lint": "biome lint --write .",
+		"lint:fix": "biome check --write ."
+	},
+	"dependencies": {
+		"@astrojs/react": "^4.2.7",
+		"@studio-freight/lenis": "^1.0.42",
+		"@tailwindcss/vite": "^4.1.6",
+		"@types/react": "^19.1.4",
+		"@types/react-dom": "^19.1.5",
+		"astro": "^5.7.12",
+		"clsx": "^2.1.1",
+		"motion": "^12.11.0",
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0",
+		"sharp": "^0.34.1",
+		"tailwind-merge": "^3.3.0",
+		"tailwindcss": "^4.1.6"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4"
+	},
+	"packageManager": "bun@1.2.20"
 }
