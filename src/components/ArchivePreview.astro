@@ -1,132 +1,88 @@
 ---
-import { Image } from "astro:assets";
-
 // Import images directly
 import tourPoster from "../assets/archive/1.png";
 import aerv from "../assets/archive/2.png";
 import aec3 from "../assets/archive/3.png";
 import orbisLibri from "../assets/archive/4.png";
 import rebornPoster from "../assets/archive/5.png";
+import CycleImage from "./CycleImage";
 
-// Archive items defined inline
-const archiveItems = [
+// Client-usable list of images (src + title + dimensions)
+const clientImages = [
 	{
-		id: 1,
 		title: "tour_poster_photoshot_2024.png",
-		image: tourPoster,
-		position: "col-start-1 col-end-2 row-span-1",
-		size: "w-full h-auto",
+		src: tourPoster.src,
+		width: tourPoster.width,
+		height: tourPoster.height,
 	},
+	{ title: "aerv.png", src: aerv.src, width: aerv.width, height: aerv.height },
+	{ title: "aec3.png", src: aec3.src, width: aec3.width, height: aec3.height },
 	{
-		id: 2,
-		title: "aerv.png",
-		image: aerv,
-		position: "col-start-3 col-end-4 row-span-1",
-		size: "w-full h-auto",
-		badges: [
-			{ position: "bottom-0 right-0", size: "w-8 h-8" },
-			{ position: "top-[-20px] right-[-20px]", size: "w-10 h-10" },
-		],
-	},
-	{
-		id: 3,
-		title: "aec3.png",
-		image: aec3,
-		position: "col-start-1 col-end-2 row-span-1",
-		size: "w-full h-auto",
-	},
-	{
-		id: 4,
 		title: "orbis_libri_logo_blue.png",
-		image: orbisLibri,
-		position: "col-start-3 col-end-4 row-span-1",
-		size: "w-full h-auto",
+		src: orbisLibri.src,
+		width: orbisLibri.width,
+		height: orbisLibri.height,
 	},
 	{
-		id: 5,
 		title: "reborn_poster.png",
-		image: rebornPoster,
-		position: "col-start-2 col-end-3 row-span-1",
-		size: "w-full h-auto",
+		src: rebornPoster.src,
+		width: rebornPoster.width,
+		height: rebornPoster.height,
 	},
 ];
 ---
 
-<div class="w-full max-w-6xl mx-auto bg-background text-palette-brightest-white py-8 min-h-screen">
+<div class="w-full max-w-7xl mx-auto bg-background text-palette-brightest-white py-8 min-h-screen">
 	<div class="container mx-auto px-4">
 		<div class="grid grid-cols-2 grid-rows-3 gap-32 relative">
 			<!-- Tour Poster -->
 			<div class="relative col-start-1 col-end-1 row-span-1">
-				<div class="relative overflow-hidden">
-					<Image 
-						src={tourPoster} 
-						alt="tour_poster_photoshot_2024.png"
-						class="w-full h-auto"
-					/>
-					<div>
-						<p class="font-mono text-palette-brightest-white">tour_poster_photoshot_2024.png</p>
-					</div>
-				</div>
+				<CycleImage client:load images={clientImages} startIndex={0} />
 			</div>
 			
 			<!-- AERV -->
 			<div class="relative col-start-2 row-start-1 flex flex-col justify-end">
-				<div class="relative overflow-hidden">
-					<Image 
-						src={aerv} 
-						alt="aerv.png"
-						class="w-full h-auto"
-					/>
-					<div class="">
-						<p class="font-mono text-palette-brightest-white">aerv.png</p>
-					</div>
-				</div>
+				<CycleImage client:load images={clientImages} startIndex={1} />
 			</div>
 			
 			<!-- AEC3 -->
 			<div class="relative col-start-1 row-span-1 mt-16">
-				<div class="relative overflow-hidden">
-					<Image 
-						src={aec3} 
-						alt="aec3.png"
-						class="w-full h-auto"
-					/>
-					<div>
-						<p class="font-mono text-palette-brightest-white">aec3.png</p>
-					</div>
-				</div>
+				<CycleImage client:load images={clientImages} startIndex={2} />
 			</div>
 			
 			<!-- Orbis Libri -->
 			<div class="relative col-start-2 row-span-1 flex flex-col justify-end">
-				<div class="relative overflow-hidden">
-					<Image 
-						src={orbisLibri} 
-						alt="orbis_libri_logo_blue.png"
-						class="w-full h-auto"
-					/>
-					<div>
-						<p class="font-mono text-palette-brightest-white">orbis_libri_logo_blue.png</p>
-					</div>
-				</div>
+				<CycleImage client:load images={clientImages} startIndex={3} />
 				</div>
 			
 			<!-- Reborn Poster -->
 			<div class="relative col-start-1 row-span-1 ">
-				<div class="relative overflow-hidden">
-					<Image 
-						src={rebornPoster} 
-						alt="reborn_poster.png"
-						class="w-full h-auto"
-					/>
-					<div>
-						<p class="font-mono text-palette-brightest-white">reborn_poster.png</p>
-					</div>
-				</div>
+				<CycleImage client:load images={clientImages} startIndex={4} />
 			</div>
 		</div>
 	</div>
-	<div class="flex justify-center pr-4 pt-24">
+	<div class="flex justify-center pr-4 pt-20">
 		<a href="/archive" class="text-base font-mono text-palette-brightest-white hover:text-white hover:underline transition-colors duration-300">see_full_archive</a>
 	</div>
 </div>
+
+<style>
+	/* Prevent layout shift and improve image cycling */
+	.cycle-image-container {
+		contain: layout style;
+	}
+	
+	/* Smooth image transitions */
+	img {
+		transition: opacity 0.2s ease-in-out;
+	}
+	
+	/* Prevent scroll jumping on click */
+	img[role="button"] {
+		user-select: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+	}
+</style>
+
