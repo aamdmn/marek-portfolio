@@ -1,0 +1,49 @@
+---
+const leftLinks = [
+	{ href: "https://artisticareaclub.com", text: "Artistic Area Club" },
+	{
+		href: "https://artisticareaclub.com/community",
+		text: "Artistic Area Community",
+	},
+];
+
+const centerLinks = [
+	{ href: "/archive", text: "Archive" },
+	{ href: "/about", text: "About" },
+	{ href: "/contact", text: "Contact" },
+];
+
+const rightLinks = [
+	{ href: "https://instagram.com", text: "Instagram" },
+	{ href: "https://pinterest.com", text: "Pinterest" },
+	{ href: "https://behance.net", text: "Behance" },
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="w-full mt-44">
+	<div class="w-full max-w-6xl mx-auto px-4">
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-8 py-8">
+			<ul>
+				{leftLinks.map((l) => (
+					<li><a href={l.href} class="hover:underline text-sm">{l.text}</a></li>
+				))}
+			</ul>
+			<ul>
+				{centerLinks.map((l) => (
+					<li><a href={l.href} class="hover:underline text-sm inline-block text-secondary-foreground first-letter:text-palette-brightest-white">{l.text}</a></li>
+				))}
+			</ul>
+			<ul>
+				{rightLinks.map((l) => (
+					<li><a href={l.href} class="hover:underline text-sm" target="_blank" rel="noreferrer noopener">{l.text}</a></li>
+				))}
+			</ul>
+		</div>
+		<div class="h-px bg-white/10"></div>
+		<p class="text-center text-sm text-palette-brightest-white pt-4 pb-12">ARTISTICAREACLUB © {year} All Rights Reserved</p>
+	</div>
+</footer>
+
+

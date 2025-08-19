@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets";
+import background from "../assets/contact.png";
+
+const {
+	email = "contact@marekvican.com",
+	imageSrc = background,
+	imageAlt = "theline",
+	imageCaption = "theline.png",
+} = Astro.props;
+---
+
+<section class="w-full max-w-6xl mx-auto mt-44">
+	<div class="container mx-auto px-4">
+		<div class="flex flex-col md:flex-row gap-12 items-center justify-between">
+			<div>
+				<h2 class="text-base font-mono text-secondary-foreground">Contact</h2>
+				<a href={`mailto:${email}`} class="mt-4 inline-block text-base md:text-lg hover:underline">
+					{email}
+				</a>
+			</div>
+
+			<div>
+				<div class="bg-black/60 max-w-xl">
+					<Image src={imageSrc} alt={imageAlt} class="w-full h-auto aspect-[4/3] object-contain" />
+				</div>
+				<div class="mt-2">
+					<p class="text-sm">{imageCaption}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
