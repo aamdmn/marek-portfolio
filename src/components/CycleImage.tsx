@@ -37,7 +37,7 @@ export default function CycleImage(props: CycleImageProps) {
 
 	const [currentIndex, setCurrentIndex] = useState<number>(initialIndex);
 	const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
-	
+
 	const current = images[total > 0 ? currentIndex % total : 0] ?? {
 		title: "",
 		src: "",
@@ -58,14 +58,14 @@ export default function CycleImage(props: CycleImageProps) {
 			// Prevent default behavior but don't interfere with Lenis smooth scroll
 			e.preventDefault();
 			e.stopPropagation();
-			
+
 			// Prevent any potential scrolling from the click
-			if (e.type === 'click') {
-				(e as React.MouseEvent).currentTarget.blur();
+			if (e.type === "click") {
+				(e.target as HTMLElement).blur();
 			}
-			
+
 			if (total === 0 || isTransitioning) return;
-			
+
 			setIsTransitioning(true);
 			setCurrentIndex((prev) => (prev + 1) % total);
 		},
@@ -84,9 +84,12 @@ export default function CycleImage(props: CycleImageProps) {
 	return (
 		<div className={wrapperClassName}>
 			<div
-				className="relative w-full"
+				className="relative w-full h-full max-h-[47rem]"
 				style={{
-					aspectRatio: current.width && current.height ? `${current.width}/${current.height}` : "1",
+					aspectRatio:
+						current.width && current.height
+							? `${current.width}/${current.height}`
+							: "1",
 					minHeight: "200px", // Prevent container from being too small
 				}}
 			>
@@ -99,17 +102,16 @@ export default function CycleImage(props: CycleImageProps) {
 					decoding="async"
 					width={current.width}
 					height={current.height}
-					className={`${className} ${cursorClassName} absolute inset-0 ${isTransitioning ? "opacity-80" : "opacity-100"}`}
+					className={`${className} ${cursorClassName} inset-0 ${isTransitioning ? "opacity-80" : "opacity-100"}`}
 					onClick={handleNext}
 					onKeyDown={handleKeyDown}
-					role="button"
-					tabIndex={0}
+					// tabIndex={0}
 					draggable={false}
 					style={{
 						width: "100%",
 						height: "100%",
 						objectFit: "contain",
-						objectPosition: "center",
+						objectPosition: "left",
 						transition: "opacity 0.2s ease-in-out",
 					}}
 				/>

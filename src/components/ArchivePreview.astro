@@ -9,7 +9,7 @@ import rebornPoster from "../assets/archive/5.png";
 import CycleImage from "./CycleImage";
 
 // Optimize images for different sizes with responsive variants
-const optimizeImage = async (src: any) => {
+const optimizeImage = async (src: ImageMetadata) => {
 	const [small, medium, large] = await Promise.all([
 		getImage({ src, width: 400, format: "webp", quality: 85 }),
 		getImage({ src, width: 800, format: "webp", quality: 85 }),
@@ -125,7 +125,7 @@ const clientImages = [
 	}
 	
 	/* Prevent scroll jumping and touch behaviors */
-	img[role="button"] {
+	img[tabindex] {
 		user-select: none;
 		-webkit-user-select: none;
 		-moz-user-select: none;
