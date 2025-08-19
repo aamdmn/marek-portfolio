@@ -3,6 +3,8 @@ import "../styles/global.css";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import MobileHeader from "../components/MobileHeader";
+
+const { title, ...props } = Astro.props;
 ---
 
 <!doctype html>
@@ -12,7 +14,8 @@ import MobileHeader from "../components/MobileHeader";
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title} Marek Vican</title>
+		<meta name="description" content="Marek Vican is a designer based in Bratislava, Slovakia. He creates visual identities, website design, applications, and marketing materials, striving to combine creative solutions that are functional, aesthetically pleasing, and inspiring." />
 	</head>
 	<body>
 		<Header />
