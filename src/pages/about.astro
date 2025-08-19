@@ -1,0 +1,172 @@
+---
+import { getImage } from "astro:assets";
+import CycleImage from "../components/CycleImage";
+import Experience from "../components/Experience.astro";
+import Layout from "../layouts/Layout.astro";
+
+import tourPoster from "../assets/archive/1.png";
+import aerv from "../assets/archive/2.png";
+import aec3 from "../assets/archive/3.png";
+import orbisLibri from "../assets/archive/4.png";
+import rebornPoster from "../assets/archive/5.png";
+// Import images directly
+import brokenMirror from "../assets/broken-mirror.jpg";
+
+// Optimize images for different sizes with responsive variants
+const optimizeImage = async (src: ImageMetadata) => {
+	const [small, medium, large] = await Promise.all([
+		getImage({ src, width: 400, format: "webp", quality: 85 }),
+		getImage({ src, width: 800, format: "webp", quality: 85 }),
+		getImage({ src, width: 1200, format: "webp", quality: 85 }),
+	]);
+	return { small, medium, large };
+};
+
+const [
+	brokenMirrorOptimized,
+	tourPosterOptimized,
+	aervOptimized,
+	aec3Optimized,
+	orbisLibriOptimized,
+	rebornPosterOptimized,
+] = await Promise.all([
+	optimizeImage(brokenMirror),
+	optimizeImage(tourPoster),
+	optimizeImage(aerv),
+	optimizeImage(aec3),
+	optimizeImage(orbisLibri),
+	optimizeImage(rebornPoster),
+]);
+
+// Client-usable list of optimized images with responsive sources
+const cycleImages = [
+	{
+		title: "maithedesign.png",
+		src: brokenMirrorOptimized.medium.src,
+		srcSet: `${brokenMirrorOptimized.small.src} 400w, ${brokenMirrorOptimized.medium.src} 800w, ${brokenMirrorOptimized.large.src} 1200w`,
+		sizes: "(max-width: 640px) 400px, (max-width: 1024px) 800px, 1200px",
+		width: brokenMirrorOptimized.medium.attributes.width,
+		height: brokenMirrorOptimized.medium.attributes.height,
+	},
+	{
+		title: "tour_poster_photoshot_2024.png",
+		src: tourPosterOptimized.medium.src,
+		srcSet: `${tourPosterOptimized.small.src} 400w, ${tourPosterOptimized.medium.src} 800w, ${tourPosterOptimized.large.src} 1200w`,
+		sizes: "(max-width: 640px) 400px, (max-width: 1024px) 800px, 1200px",
+		width: tourPosterOptimized.medium.attributes.width,
+		height: tourPosterOptimized.medium.attributes.height,
+	},
+	{
+		title: "aerv.png",
+		src: aervOptimized.medium.src,
+		srcSet: `${aervOptimized.small.src} 400w, ${aervOptimized.medium.src} 800w, ${aervOptimized.large.src} 1200w`,
+		sizes: "(max-width: 640px) 400px, (max-width: 1024px) 800px, 1200px",
+		width: aervOptimized.medium.attributes.width,
+		height: aervOptimized.medium.attributes.height,
+	},
+	{
+		title: "aec3.png",
+		src: aec3Optimized.medium.src,
+		srcSet: `${aec3Optimized.small.src} 400w, ${aec3Optimized.medium.src} 800w, ${aec3Optimized.large.src} 1200w`,
+		sizes: "(max-width: 640px) 400px, (max-width: 1024px) 800px, 1200px",
+		width: aec3Optimized.medium.attributes.width,
+		height: aec3Optimized.medium.attributes.height,
+	},
+	{
+		title: "orbis_libri_logo_blue.png",
+		src: orbisLibriOptimized.medium.src,
+		srcSet: `${orbisLibriOptimized.small.src} 400w, ${orbisLibriOptimized.medium.src} 800w, ${orbisLibriOptimized.large.src} 1200w`,
+		sizes: "(max-width: 640px) 400px, (max-width: 1024px) 800px, 1200px",
+		width: orbisLibriOptimized.medium.attributes.width,
+		height: orbisLibriOptimized.medium.attributes.height,
+	},
+	{
+		title: "reborn_poster.png",
+		src: rebornPosterOptimized.medium.src,
+		srcSet: `${rebornPosterOptimized.small.src} 400w, ${rebornPosterOptimized.medium.src} 800w, ${rebornPosterOptimized.large.src} 1200w`,
+		sizes: "(max-width: 640px) 400px, (max-width: 1024px) 800px, 1200px",
+		width: rebornPosterOptimized.medium.attributes.width,
+		height: rebornPosterOptimized.medium.attributes.height,
+	},
+];
+---
+
+<Layout>
+	<div class="w-full max-w-7xl mx-auto bg-background text-palette-brightest-white py-16 min-h-screen">
+		<div class="container mx-auto px-4">
+			<!-- Hero Section -->
+			<div class="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12 mb-32">
+				<!-- About -->
+				<div class="lg:col-span-2 mt-2">
+					<h1 class="text-base font-mono text-secondary-foreground mb-2">About</h1>
+					<div class="space-y-6 max-w-sm">
+						<p class=" leading-relaxed">
+							As a multidisciplinary designer, I focus on various aspects of visual creation, from graphic design to digital and interactive projects.
+						</p>
+						<p class=" leading-relaxed">
+							I create visual identities, website design, applications, and marketing materials, striving to combine creative solutions that are functional, aesthetically pleasing, and inspiring.
+						</p>
+						<p class="leading-relaxed">
+							My approach allows me to integrate different design disciplines, ensuring my projects are both effective and visually impactful.
+						</p>
+					</div>
+				</div>
+
+				<!-- Capabilities -->
+				<div class="lg:col-span-1">
+					<h2 class="text-base font-mono text-secondary-foreground mb-2">Capabilities</h2>
+					<ul>
+						<li>Visual communication</li>
+						<li>Digital design</li>
+						<li>User-centered design</li>
+						<li>Collaborative creativity</li>
+						<li>Project management</li>
+						<li>Cross-disciplinary approach</li>
+					</ul>
+
+					<div class="mt-12">
+						<h2 class="text-base font-mono text-secondary-foreground mb-2">Programs</h2>
+						<ul>
+							<li>Figma</li>
+							<li>Adobe Illustrator</li>
+							<li>Adobe Photoshop</li>
+							<li>Framer</li>
+							<li>Notion</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Location & Contact -->
+				<div class="lg:col-span-1">
+					<div class="mb-16">
+						<h2 class="text-base font-mono text-secondary-foreground mb-2">Location</h2>
+						<p>Based in Bratislava, Slovakia</p>
+					</div>
+
+					<div>
+						<h2 class="text-base font-mono text-secondary-foreground mb-2">Contact</h2>
+						<a href="mailto:contact@marekvician.com" class="hover:underline">
+							contact@marekvician.com
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Image Section -->
+			<div class="flex justify-center mb-16">
+				<div class="w-full max-w-md">
+					<CycleImage 
+						client:load 
+						images={cycleImages}
+						startIndex={0}
+						wrapperClassName="relative overflow-hidden"
+						className="w-full h-auto select-none rounded-lg"
+					/>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Experience Section -->
+	<Experience />
+</Layout>
