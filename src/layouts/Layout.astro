@@ -19,5 +19,26 @@ import MobileHeader from "../components/MobileHeader";
 		<main class="flex-grow">
 			<slot />
 		</main>
+		<script>
+			import Lenis from "@studio-freight/lenis";
+
+			const prefersReducedMotion = window.matchMedia(
+				"(prefers-reduced-motion: reduce)",
+			).matches;
+
+			const lenis = new Lenis({
+				duration: prefersReducedMotion ? 0 : 1,
+				smoothWheel: !prefersReducedMotion,
+			});
+
+			function raf(time: number) {
+				lenis.raf(time);
+				requestAnimationFrame(raf);
+			}
+
+			if (!prefersReducedMotion) {
+				requestAnimationFrame(raf);
+			}
+		</script>
 	</body>
 </html>

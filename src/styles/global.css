@@ -211,6 +211,13 @@ body {
 	/* Add any other global styles or resets here if necessary */
 }
 
+/* Fallback smooth scrolling for anchor jumps when JS is disabled */
+@media (prefers-reduced-motion: no-preference) {
+	html:focus-within {
+		scroll-behavior: smooth;
+	}
+}
+
 h1,
 h2,
 h3,
