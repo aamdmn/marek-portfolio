@@ -38,7 +38,8 @@ const clientImages = [
 		title: "tour_poster_photoshot_2024.png",
 		src: tourPosterOptimized.medium.src,
 		srcSet: `${tourPosterOptimized.small.src} 400w, ${tourPosterOptimized.medium.src} 800w, ${tourPosterOptimized.large.src} 1200w`,
-		sizes: "(max-width: 640px) 400px, (max-width: 1024px) 800px, 1200px",
+		sizes:
+			"(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 45vw, 600px",
 		width: tourPosterOptimized.medium.attributes.width,
 		height: tourPosterOptimized.medium.attributes.height,
 	},
@@ -46,7 +47,8 @@ const clientImages = [
 		title: "aerv.png",
 		src: aervOptimized.medium.src,
 		srcSet: `${aervOptimized.small.src} 400w, ${aervOptimized.medium.src} 800w, ${aervOptimized.large.src} 1200w`,
-		sizes: "(max-width: 640px) 400px, (max-width: 1024px) 800px, 1200px",
+		sizes:
+			"(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 45vw, 600px",
 		width: aervOptimized.medium.attributes.width,
 		height: aervOptimized.medium.attributes.height,
 	},
@@ -54,7 +56,8 @@ const clientImages = [
 		title: "aec3.png",
 		src: aec3Optimized.medium.src,
 		srcSet: `${aec3Optimized.small.src} 400w, ${aec3Optimized.medium.src} 800w, ${aec3Optimized.large.src} 1200w`,
-		sizes: "(max-width: 640px) 400px, (max-width: 1024px) 800px, 1200px",
+		sizes:
+			"(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 45vw, 600px",
 		width: aec3Optimized.medium.attributes.width,
 		height: aec3Optimized.medium.attributes.height,
 	},
@@ -62,7 +65,8 @@ const clientImages = [
 		title: "orbis_libri_logo_blue.png",
 		src: orbisLibriOptimized.medium.src,
 		srcSet: `${orbisLibriOptimized.small.src} 400w, ${orbisLibriOptimized.medium.src} 800w, ${orbisLibriOptimized.large.src} 1200w`,
-		sizes: "(max-width: 640px) 400px, (max-width: 1024px) 800px, 1200px",
+		sizes:
+			"(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 45vw, 600px",
 		width: orbisLibriOptimized.medium.attributes.width,
 		height: orbisLibriOptimized.medium.attributes.height,
 	},
@@ -70,44 +74,45 @@ const clientImages = [
 		title: "reborn_poster.png",
 		src: rebornPosterOptimized.medium.src,
 		srcSet: `${rebornPosterOptimized.small.src} 400w, ${rebornPosterOptimized.medium.src} 800w, ${rebornPosterOptimized.large.src} 1200w`,
-		sizes: "(max-width: 640px) 400px, (max-width: 1024px) 800px, 1200px",
+		sizes:
+			"(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 45vw, 600px",
 		width: rebornPosterOptimized.medium.attributes.width,
 		height: rebornPosterOptimized.medium.attributes.height,
 	},
 ];
 ---
 
-<div class="w-full max-w-7xl mx-auto bg-background text-palette-brightest-white py-8 min-h-screen">
-	<div class="container mx-auto px-4">
-		<div class="grid grid-cols-2 grid-rows-3 gap-32 relative">
+	<div class="w-full max-w-7xl mx-auto bg-background text-palette-brightest-white py-4 sm:py-8 min-h-screen">
+		<div class="container mx-auto px-4 sm:px-6">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-16 md:gap-24 lg:gap-32 relative">
 			<!-- Tour Poster -->
-			<div class="relative col-start-1 col-end-1 row-span-1">
+			<div class="relative w-full">
 				<CycleImage client:load images={clientImages} startIndex={0} />
 			</div>
 			
 			<!-- AERV -->
-			<div class="relative col-start-2 row-start-1 flex flex-col justify-end">
+			<div class="relative w-full md:flex md:flex-col md:justify-end">
 				<CycleImage client:load images={clientImages} startIndex={1} />
 			</div>
 			
 			<!-- AEC3 -->
-			<div class="relative col-start-1 row-span-1 mt-16">
+			<div class="relative w-full mt-4 sm:mt-8 md:mt-16">
 				<CycleImage client:load images={clientImages} startIndex={2} />
 			</div>
 			
 			<!-- Orbis Libri -->
-			<div class="relative col-start-2 row-span-1 flex flex-col justify-end">
+			<div class="relative w-full md:flex md:flex-col md:justify-end">
 				<CycleImage client:load images={clientImages} startIndex={3} />
-				</div>
+			</div>
 			
 			<!-- Reborn Poster -->
-			<div class="relative col-start-1 row-span-1 ">
+			<div class="relative w-full">
 				<CycleImage client:load images={clientImages} startIndex={4} />
 			</div>
 		</div>
 	</div>
-	<div class="flex justify-center pr-4 pt-20">
-		<a href="/archive" class="text-base font-mono text-palette-brightest-white hover:text-white hover:underline transition-colors duration-300">see_full_archive</a>
+	<div class="flex justify-center px-4 pt-8 sm:pt-12 md:pt-16 lg:pt-20">
+		<a href="/archive" class="text-sm sm:text-base font-mono text-palette-brightest-white hover:text-white hover:underline transition-colors duration-300">see_full_archive</a>
 	</div>
 </div>
 
@@ -145,6 +150,35 @@ const clientImages = [
 	/* Ensure grid doesn't reflow */
 	.grid {
 		isolation: isolate;
+	}
+	
+	/* Mobile-specific optimizations */
+	@media (max-width: 768px) {
+		.cycle-image-container {
+			/* Reduce memory usage on mobile */
+			contain: layout style;
+		}
+		
+		/* Optimize touch interactions */
+		img {
+			touch-action: manipulation;
+			-webkit-touch-callout: none;
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+		}
+		
+		/* Ensure images don't overflow on small screens */
+		.grid > div {
+			max-width: 100%;
+			overflow: hidden;
+		}
+	}
+	
+	/* Tablet and larger mobile optimizations */
+	@media (min-width: 768px) and (max-width: 1024px) {
+		.grid {
+			/* Ensure consistent spacing on tablets */
+			align-items: start;
+		}
 	}
 </style>
 
