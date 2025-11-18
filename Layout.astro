@@ -1,0 +1,49 @@
+---
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import MobileHeader from "../components/MobileHeader";
+
+const { title, ...props } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} Marek Vican</title>
+		<meta name="description" content="Marek is a designer based in Bratislava, Slovakia. He creates visual identities, website design, applications, and marketing materials, striving to combine creative solutions that are functional, aesthetically pleasing, and inspiring." />
+	</head>
+	<body>
+		<Header />
+		<MobileHeader client:load />
+		<main class="flex-grow">
+			<slot />
+		</main>
+		<Footer />
+		<script>
+			import Lenis from "@studio-freight/lenis";
+
+			const prefersReducedMotion = window.matchMedia(
+				"(prefers-reduced-motion: reduce)",
+			).matches;
+
+			const lenis = new Lenis({
+				duration: prefersReducedMotion ? 0 : 1,
+				smoothWheel: !prefersReducedMotion,
+			});
+
+			function raf(time: number) {
+				lenis.raf(time);
+				requestAnimationFrame(raf);
+			}
+
+			if (!prefersReducedMotion) {
+				requestAnimationFrame(raf);
+			}
+		</script>
+	</body>
+</html>
