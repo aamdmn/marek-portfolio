@@ -96,59 +96,65 @@ const cycleImages = [
 <Layout title="About |">
 	<div class="w-full max-w-7xl mx-auto bg-background text-palette-brightest-white py-16 min-h-screen">
 		<div class="container mx-auto px-4">
-			<!-- Hero Section -->
-			<div class="mb-32">
-				<!-- Mobile: Table-like two-column layout, Desktop: Grid layout -->
-				<div class="max-w-2xl mx-auto lg:max-w-none">
-					<!-- Mobile: Single two-column grid for all sections -->
-					<div class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-8 lg:grid-cols-4 lg:gap-8 lg:gap-x-12">
-						<!-- About -->
-						<h1 class="text-base font-mono text-secondary-foreground whitespace-nowrap self-start lg:col-span-2 lg:mb-2 lg:mt-2">About</h1>
-						<div class="space-y-6 lg:col-span-2 lg:row-start-2 lg:col-start-1 lg:mt-0 lg:-mt-6">
-							<p class="leading-relaxed">
-								As a multidisciplinary designer, I focus on various aspects of visual creation, from graphic design to digital and interactive projects.
-							</p>
-							<p class="leading-relaxed">
-								I create visual identities, website design, applications, and marketing materials, striving to combine creative solutions that are functional, aesthetically pleasing, and inspiring.
-							</p>
-							<p class="leading-relaxed">
-								My approach allows me to integrate different design disciplines, ensuring my projects are both effective and visually impactful.
-							</p>
-						</div>
+		<!-- Hero Section -->
+		<div class="mb-32">
+			<!-- Mobile: Table-like two-column layout, Desktop: 3-column grid layout -->
+			<div class="max-w-2xl mx-auto lg:max-w-none">
+			<!-- Mobile: Single two-column grid for all sections -->
+			<!-- Desktop: Three columns with stacked content -->
+			<div class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-8 lg:grid-cols-3 lg:gap-x-16 lg:gap-y-0">
+				<!-- About Column -->
+				<h1 class="text-base font-mono text-secondary-foreground whitespace-nowrap self-start lg:hidden">About</h1>
+				<div class="space-y-6 lg:col-span-1">
+					<h1 class="hidden lg:block text-base font-mono text-secondary-foreground mb-2">About</h1>
+					<p class="leading-relaxed">
+						As a multidisciplinary designer, I focus on various aspects of visual creation, from graphic design to digital and interactive projects.
+					</p>
+					<p class="leading-relaxed">
+						I create visual identities, website design, applications, and marketing materials, striving to combine creative solutions that are functional, aesthetically pleasing, and inspiring.
+					</p>
+					<p class="leading-relaxed">
+						My approach allows me to integrate different design disciplines, ensuring my projects are both effective and visually impactful.
+					</p>
+				</div>
 
-						<!-- Capabilities -->
-						<h2 class="text-base font-mono text-secondary-foreground whitespace-nowrap self-start lg:col-span-1 lg:col-start-3 lg:row-start-1 lg:mb-2">Capabilities</h2>
-						<ul class="lg:col-span-1 lg:col-start-3 lg:row-start-2 lg:-mt-6">
-							<li>Visual communication</li>
-							<li>Digital design</li>
-							<li>User-centered design</li>
-							<li>Collaborative creativity</li>
-							<li>Project management</li>
-							<li>Cross-disciplinary approach</li>
-						</ul>
+				<!-- Capabilities & Programs Column -->
+				<h2 class="text-base font-mono text-secondary-foreground whitespace-nowrap self-start lg:hidden">Capabilities</h2>
+				<div class="lg:col-span-1">
+					<h2 class="hidden lg:block text-base font-mono text-secondary-foreground mb-2">Capabilities</h2>
+					<ul>
+						<li>Visual communication</li>
+						<li>Digital design</li>
+						<li>User-centered design</li>
+						<li>Collaborative creativity</li>
+						<li>Project management</li>
+						<li>Cross-disciplinary approach</li>
+					</ul>
 
-						<!-- Programs -->
-						<h2 class="text-base font-mono text-secondary-foreground whitespace-nowrap self-start lg:col-span-1 lg:col-start-3 lg:row-start-3 lg:mb-2">Programs</h2>
-						<ul class="lg:col-span-1 lg:col-start-3 lg:row-start-4 lg:-mt-6">
-							<li>Figma</li>
-							<li>Adobe Illustrator</li>
-							<li>Adobe Photoshop</li>
-							<li>Framer</li>
-							<li>Notion</li>
-						</ul>
+					<h2 class="text-base font-mono text-secondary-foreground mt-12 mb-2">Programs</h2>
+					<ul>
+						<li>Figma</li>
+						<li>Adobe Illustrator</li>
+						<li>Adobe Photoshop</li>
+						<li>Framer</li>
+						<li>Notion</li>
+					</ul>
+				</div>
 
-						<!-- Location -->
-						<h2 class="text-base font-mono text-secondary-foreground whitespace-nowrap self-start lg:col-span-1 lg:col-start-4 lg:row-start-1 lg:mb-2">Location</h2>
-						<p class="lg:col-span-1 lg:col-start-4 lg:row-start-2 lg:-mt-6">Based in Bratislava, Slovakia</p>
+				<!-- Location & Contact Column -->
+				<h2 class="text-base font-mono text-secondary-foreground whitespace-nowrap self-start lg:hidden">Location</h2>
+				<div class="lg:col-span-1">
+					<h2 class="hidden lg:block text-base font-mono text-secondary-foreground mb-2">Location</h2>
+					<p class="mb-12">Based in Bratislava, Slovakia</p>
 
-						<!-- Contact -->
-						<h2 class="text-base font-mono text-secondary-foreground whitespace-nowrap self-start lg:col-span-1 lg:col-start-4 lg:row-start-3 lg:mb-2">Contact</h2>
-						<a href="mailto:contact@marekvician.com" class="hover:underline lg:col-span-1 lg:col-start-4 lg:row-start-4 lg:-mt-6">
-							contact@marekvician.com
-						</a>
-					</div>
+					<h2 class="text-base font-mono text-secondary-foreground mb-2">Contact</h2>
+					<a href="mailto:contact@marekvician.com" class="hover:underline">
+						contact@marekvician.com
+					</a>
 				</div>
 			</div>
+			</div>
+		</div>
 
 			<!-- Image Section -->
 			<div class="flex justify-center mb-16">
