@@ -1,5 +1,6 @@
 import type React from "react";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { updateImageCounter } from "./ImageCounter";
 
 export type CycleImageItem = {
 	title: string;
@@ -17,6 +18,8 @@ type CycleImageProps = {
 	captionClassName?: string;
 	wrapperClassName?: string;
 	cursorClassName?: string;
+	disableClick?: boolean;
+	showCounter?: boolean;
 };
 
 export default function CycleImage(props: CycleImageProps) {
@@ -27,6 +30,8 @@ export default function CycleImage(props: CycleImageProps) {
 		captionClassName = "font-mono text-palette-brightest-white text-sm",
 		wrapperClassName = "relative overflow-hidden cycle-image-container",
 		cursorClassName = "cursor-default hover:cursor-e-resize",
+		disableClick = false,
+		showCounter = false,
 	} = props;
 
 	const total = images.length;
@@ -37,6 +42,18 @@ export default function CycleImage(props: CycleImageProps) {
 
 	const [currentIndex, setCurrentIndex] = useState<number>(initialIndex);
 	const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
+	const [isHovering, setIsHovering] = useState<boolean>(false);
+
+	// Update counter when state changes
+	useEffect(() => {
+		if (showCounter) {
+			updateImageCounter({
+				currentIndex,
+				total,
+				isVisible: isHovering,
+			});
+		}
+	}, [currentIndex, total, isHovering, showCounter]);
 
 	const current = images[total > 0 ? currentIndex % total : 0] ?? {
 		title: "",
@@ -92,6 +109,8 @@ export default function CycleImage(props: CycleImageProps) {
 							: "1",
 					minHeight: "200px", // Prevent container from being too small
 				}}
+				onMouseEnter={() => setIsHovering(true)}
+				onMouseLeave={() => setIsHovering(false)}
 			>
 				<img
 					src={current.src}
@@ -103,8 +122,8 @@ export default function CycleImage(props: CycleImageProps) {
 					width={current.width}
 					height={current.height}
 					className={`${className} ${cursorClassName} inset-0 ${isTransitioning ? "opacity-80" : "opacity-100"}`}
-					onClick={handleNext}
-					onKeyDown={handleKeyDown}
+					onClick={disableClick ? undefined : handleNext}
+					onKeyDown={disableClick ? undefined : handleKeyDown}
 					// tabIndex={0}
 					draggable={false}
 					style={{

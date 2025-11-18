@@ -226,3 +226,77 @@ h5,
 h6 {
 	font-family: var(--font-heading);
 }
+
+/* ================================================================================
+ * CUSTOM CURSOR STYLES
+ * ================================================================================ */
+
+/* Hide default cursor globally */
+* {
+	cursor: none !important;
+}
+
+/* Custom cursor - main plus icon */
+.custom-cursor {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 24px;
+	height: 24px;
+	pointer-events: none;
+	z-index: 9999;
+	transform: translate(-50%, -50%);
+	mix-blend-mode: difference;
+	will-change: transform;
+}
+
+/* Cursor follower - smooth trail effect */
+.custom-cursor-follower {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 40px;
+	height: 40px;
+	pointer-events: none;
+	z-index: 9998;
+	transform: translate(-50%, -50%);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	border-radius: 50%;
+	mix-blend-mode: difference;
+	will-change: transform;
+}
+
+/* Hide custom cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+	.custom-cursor,
+	.custom-cursor-follower {
+		display: none;
+	}
+
+	* {
+		cursor: auto !important;
+	}
+}
+
+/* ================================================================================
+ * IMAGE COUNTER STYLES
+ * ================================================================================ */
+
+.image-counter {
+	position: fixed;
+	top: 0;
+	left: 0;
+	pointer-events: none;
+	z-index: 9997;
+	transform: translate(-50%, -50%);
+	font-family: var(--font-body);
+	font-size: 0.75rem;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.6);
+	padding: 0.25rem 0.5rem;
+	border-radius: 0.25rem;
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+	white-space: nowrap;
+	will-change: transform, opacity;
+}

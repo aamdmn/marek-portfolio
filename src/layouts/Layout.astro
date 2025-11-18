@@ -1,8 +1,11 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 import "../styles/global.css";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import MobileHeader from "../components/MobileHeader";
+import CustomCursor from "../components/CustomCursor";
+import ImageCounter from "../components/ImageCounter";
 
 const { title, ...props } = Astro.props;
 ---
@@ -16,8 +19,11 @@ const { title, ...props } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title} Marek Vican</title>
 		<meta name="description" content="Marek is a designer based in Bratislava, Slovakia. He creates visual identities, website design, applications, and marketing materials, striving to combine creative solutions that are functional, aesthetically pleasing, and inspiring." />
+		<ViewTransitions />
 	</head>
 	<body>
+		<CustomCursor client:load transition:persist />
+		<ImageCounter client:load transition:persist />
 		<Header />
 		<MobileHeader client:load />
 		<main class="flex-grow">
