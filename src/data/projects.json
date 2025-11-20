@@ -1,0 +1,68 @@
+[
+	{
+		"slug": "tour-poster-photoshoot-2024",
+		"name": "Tour Poster Photoshoot 2024",
+		"client": "Artistic Area Club",
+		"year": "2024",
+		"role": "Visual Identity & Poster Design",
+		"about": "Poster series exploring light, texture, and negative space for a fictional tour campaign. Focus on simple forms, controlled contrast, and a cinematic atmosphere.",
+		"programs": ["Figma", "Adobe Illustrator", "Adobe Photoshop"],
+		"thumbnail": "1.png",
+		"images": ["1.png", "2.png", "3.png"]
+	},
+	{
+		"slug": "zena-identity",
+		"name": "Zena Identity",
+		"client": "Artistic Area Club",
+		"year": "2024",
+		"role": "Logo & Visual Identity",
+		"about": "Clean, minimal identity built around flowing shapes and carefully balanced curves. Focus on a tactile, reflective feel that works both in print and digital.",
+		"programs": ["Adobe Illustrator", "Adobe Photoshop", "Framer"],
+		"thumbnail": "oko.jpeg",
+		"images": ["oko.jpeg", "3.png", "4.png"]
+	},
+	{
+		"slug": "aerv-cover-series",
+		"name": "AERV Cover Series",
+		"client": "Artistic Area Club",
+		"year": "2023",
+		"role": "Artwork & Cover Design",
+		"about": "A series of abstract covers combining typographic rhythm with subtle grain and gradients. Built to work across multiple formats and devices.",
+		"programs": ["Figma", "Adobe Illustrator", "Adobe Photoshop"],
+		"thumbnail": "2.png",
+		"images": ["2.png", "1.png", "5.png"]
+	},
+	{
+		"slug": "aec3-mark",
+		"name": "AEC3 Mark",
+		"client": "Artistic Area Club",
+		"year": "2023",
+		"role": "Logo Design",
+		"about": "Monoline logomark designed as a continuous loop. The form is intentionally minimal while still retaining a strong, memorable silhouette.",
+		"programs": ["Adobe Illustrator", "Adobe Photoshop", "Notion"],
+		"thumbnail": "3.png",
+		"images": ["3.png", "4.png", "2.png"]
+	},
+	{
+		"slug": "orbis-libri-logo",
+		"name": "Orbis Libri Logo",
+		"client": "Orbis Libri",
+		"year": "2023",
+		"role": "Brand Identity",
+		"about": "Visual identity concept for a fictional publishing house. The logo focuses on circular motion and the rhythm of reading, expressed through simple geometric forms.",
+		"programs": ["Figma", "Adobe Illustrator", "Adobe Photoshop"],
+		"thumbnail": "4.png",
+		"images": ["4.png", "5.png", "1.png"]
+	},
+	{
+		"slug": "reborn-poster",
+		"name": "Reborn Poster",
+		"client": "Artistic Area Club",
+		"year": "2022",
+		"role": "Poster Design",
+		"about": "Poster exploring rebirth and transformation through layered textures, grain, and bold typography. Built for both large-format print and digital use.",
+		"programs": ["Adobe Illustrator", "Adobe Photoshop", "Notion"],
+		"thumbnail": "5.png",
+		"images": ["5.png", "2.png", "3.png"]
+	}
+]

@@ -1,115 +1,28 @@
 ---
-import { Image, getImage } from "astro:assets";
-// Import images directly
-import tourPoster from "../assets/archive/1.png";
-import aerv from "../assets/archive/2.png";
-import aec3 from "../assets/archive/3.png";
-import orbisLibri from "../assets/archive/4.png";
-import rebornPoster from "../assets/archive/5.png";
 import CycleImage from "./CycleImage";
+import { getProjects } from "../lib/projects";
 
-// Optimize images for different sizes with responsive variants
-const optimizeImage = async (src: ImageMetadata) => {
-	const [small, medium, large] = await Promise.all([
-		getImage({ src, width: 400, format: "webp", quality: 85 }),
-		getImage({ src, width: 800, format: "webp", quality: 85 }),
-		getImage({ src, width: 1200, format: "webp", quality: 85 }),
-	]);
-	return { small, medium, large };
-};
-
-const [
-	tourPosterOptimized,
-	aervOptimized,
-	aec3Optimized,
-	orbisLibriOptimized,
-	rebornPosterOptimized,
-] = await Promise.all([
-	optimizeImage(tourPoster),
-	optimizeImage(aerv),
-	optimizeImage(aec3),
-	optimizeImage(orbisLibri),
-	optimizeImage(rebornPoster),
-]);
-
-// Client-usable list of optimized images with responsive sources
-const clientImages = [
-	{
-		title: "tour_poster_photoshot_2024.png",
-		src: tourPosterOptimized.medium.src,
-		srcSet: `${tourPosterOptimized.small.src} 400w, ${tourPosterOptimized.medium.src} 800w, ${tourPosterOptimized.large.src} 1200w`,
-		sizes:
-			"(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 45vw, 600px",
-		width: tourPosterOptimized.medium.attributes.width,
-		height: tourPosterOptimized.medium.attributes.height,
-	},
-	{
-		title: "aerv.png",
-		src: aervOptimized.medium.src,
-		srcSet: `${aervOptimized.small.src} 400w, ${aervOptimized.medium.src} 800w, ${aervOptimized.large.src} 1200w`,
-		sizes:
-			"(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 45vw, 600px",
-		width: aervOptimized.medium.attributes.width,
-		height: aervOptimized.medium.attributes.height,
-	},
-	{
-		title: "aec3.png",
-		src: aec3Optimized.medium.src,
-		srcSet: `${aec3Optimized.small.src} 400w, ${aec3Optimized.medium.src} 800w, ${aec3Optimized.large.src} 1200w`,
-		sizes:
-			"(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 45vw, 600px",
-		width: aec3Optimized.medium.attributes.width,
-		height: aec3Optimized.medium.attributes.height,
-	},
-	{
-		title: "orbis_libri_logo_blue.png",
-		src: orbisLibriOptimized.medium.src,
-		srcSet: `${orbisLibriOptimized.small.src} 400w, ${orbisLibriOptimized.medium.src} 800w, ${orbisLibriOptimized.large.src} 1200w`,
-		sizes:
-			"(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 45vw, 600px",
-		width: orbisLibriOptimized.medium.attributes.width,
-		height: orbisLibriOptimized.medium.attributes.height,
-	},
-	{
-		title: "reborn_poster.png",
-		src: rebornPosterOptimized.medium.src,
-		srcSet: `${rebornPosterOptimized.small.src} 400w, ${rebornPosterOptimized.medium.src} 800w, ${rebornPosterOptimized.large.src} 1200w`,
-		sizes:
-			"(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 45vw, 600px",
-		width: rebornPosterOptimized.medium.attributes.width,
-		height: rebornPosterOptimized.medium.attributes.height,
-	},
-];
+const projects = await getProjects();
+const previewProjects = projects.slice(0, 6);
 ---
 
 	<div class="w-full max-w-7xl mx-auto bg-background text-palette-brightest-white py-4 sm:py-8 min-h-screen">
 		<div class="container mx-auto px-4 sm:px-6">
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-16 md:gap-24 lg:gap-32 relative">
-			<!-- Tour Poster -->
-			<div class="relative w-full">
-				<CycleImage client:load images={clientImages} startIndex={0} />
+				{previewProjects.map((project) => (
+					<a
+						href={`/project/${project.slug}`}
+						class="relative w-full block"
+					>
+						<CycleImage
+							client:load
+							images={project.imageItems}
+							startIndex={0}
+							disableClick={true}
+						/>
+					</a>
+				))}
 			</div>
-			
-			<!-- AERV -->
-			<div class="relative w-full md:flex md:flex-col md:justify-end">
-				<CycleImage client:load images={clientImages} startIndex={1} />
-			</div>
-			
-			<!-- AEC3 -->
-			<div class="relative w-full mt-4 sm:mt-8 md:mt-16">
-				<CycleImage client:load images={clientImages} startIndex={2} />
-			</div>
-			
-			<!-- Orbis Libri -->
-			<div class="relative w-full md:flex md:flex-col md:justify-end">
-				<CycleImage client:load images={clientImages} startIndex={3} />
-			</div>
-			
-			<!-- Reborn Poster -->
-			<div class="relative w-full">
-				<CycleImage client:load images={clientImages} startIndex={4} />
-			</div>
-		</div>
 	</div>
 	<div class="flex justify-center px-4 pt-8 sm:pt-12 md:pt-16 lg:pt-20">
 		<a href="/archive" class="text-sm sm:text-base font-mono text-palette-brightest-white hover:text-white hover:underline transition-colors duration-300">see_full_archive</a>

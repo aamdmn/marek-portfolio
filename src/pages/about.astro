@@ -96,27 +96,32 @@ const cycleImages = [
 <Layout title="About |">
 	<div class="w-full max-w-7xl mx-auto bg-background text-palette-brightest-white py-16 min-h-screen">
 		<div class="container mx-auto px-4">
-			<!-- Hero Section -->
-			<div class="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12 mb-32">
-				<!-- About -->
-				<div class="lg:col-span-2 mt-2">
-					<h1 class="text-base font-mono text-secondary-foreground mb-2">About</h1>
-					<div class="space-y-6 max-w-sm">
-						<p class=" leading-relaxed">
-							As a multidisciplinary designer, I focus on various aspects of visual creation, from graphic design to digital and interactive projects.
-						</p>
-						<p class=" leading-relaxed">
-							I create visual identities, website design, applications, and marketing materials, striving to combine creative solutions that are functional, aesthetically pleasing, and inspiring.
-						</p>
-						<p class="leading-relaxed">
-							My approach allows me to integrate different design disciplines, ensuring my projects are both effective and visually impactful.
-						</p>
-					</div>
+		<!-- Hero Section -->
+		<div class="mb-32">
+			<!-- Mobile: Table-like two-column layout, Desktop: 3-column grid layout -->
+			<div class="max-w-2xl mx-auto lg:max-w-none">
+			<!-- Mobile: Single two-column grid for all sections -->
+			<!-- Desktop: Three columns with stacked content -->
+			<div class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-8 lg:grid-cols-3 lg:gap-x-16 lg:gap-y-0">
+				<!-- About Column -->
+				<h1 class="text-base font-mono text-secondary-foreground whitespace-nowrap self-start lg:hidden">About</h1>
+				<div class="space-y-6 lg:col-span-1">
+					<h1 class="hidden lg:block text-base font-mono text-secondary-foreground mb-2">About</h1>
+					<p class="leading-relaxed">
+						As a multidisciplinary designer, I focus on various aspects of visual creation, from graphic design to digital and interactive projects.
+					</p>
+					<p class="leading-relaxed">
+						I create visual identities, website design, applications, and marketing materials, striving to combine creative solutions that are functional, aesthetically pleasing, and inspiring.
+					</p>
+					<p class="leading-relaxed">
+						My approach allows me to integrate different design disciplines, ensuring my projects are both effective and visually impactful.
+					</p>
 				</div>
 
-				<!-- Capabilities -->
+				<!-- Capabilities & Programs Column -->
+				<h2 class="text-base font-mono text-secondary-foreground whitespace-nowrap self-start lg:hidden">Capabilities</h2>
 				<div class="lg:col-span-1">
-					<h2 class="text-base font-mono text-secondary-foreground mb-2">Capabilities</h2>
+					<h2 class="hidden lg:block text-base font-mono text-secondary-foreground mb-2">Capabilities</h2>
 					<ul>
 						<li>Visual communication</li>
 						<li>Digital design</li>
@@ -126,33 +131,30 @@ const cycleImages = [
 						<li>Cross-disciplinary approach</li>
 					</ul>
 
-					<div class="mt-12">
-						<h2 class="text-base font-mono text-secondary-foreground mb-2">Programs</h2>
-						<ul>
-							<li>Figma</li>
-							<li>Adobe Illustrator</li>
-							<li>Adobe Photoshop</li>
-							<li>Framer</li>
-							<li>Notion</li>
-						</ul>
-					</div>
+					<h2 class="text-base font-mono text-secondary-foreground mt-12 mb-2">Programs</h2>
+					<ul>
+						<li>Figma</li>
+						<li>Adobe Illustrator</li>
+						<li>Adobe Photoshop</li>
+						<li>Framer</li>
+						<li>Notion</li>
+					</ul>
 				</div>
 
-				<!-- Location & Contact -->
+				<!-- Location & Contact Column -->
+				<h2 class="text-base font-mono text-secondary-foreground whitespace-nowrap self-start lg:hidden">Location</h2>
 				<div class="lg:col-span-1">
-					<div class="mb-16">
-						<h2 class="text-base font-mono text-secondary-foreground mb-2">Location</h2>
-						<p>Based in Bratislava, Slovakia</p>
-					</div>
+					<h2 class="hidden lg:block text-base font-mono text-secondary-foreground mb-2">Location</h2>
+					<p class="mb-12">Based in Bratislava, Slovakia</p>
 
-					<div>
-						<h2 class="text-base font-mono text-secondary-foreground mb-2">Contact</h2>
-						<a href="mailto:contact@marekvician.com" class="hover:underline">
-							contact@marekvician.com
-						</a>
-					</div>
+					<h2 class="text-base font-mono text-secondary-foreground mb-2">Contact</h2>
+					<a href="mailto:contact@marekvician.com" class="hover:underline">
+						contact@marekvician.com
+					</a>
 				</div>
 			</div>
+			</div>
+		</div>
 
 			<!-- Image Section -->
 			<div class="flex justify-center mb-16">
@@ -163,6 +165,7 @@ const cycleImages = [
 						startIndex={0}
 						wrapperClassName="relative overflow-hidden"
 						className="w-full h-auto select-none"
+						showCounter={true}
 					/>
 				</div>
 			</div>
